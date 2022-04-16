@@ -1,0 +1,32 @@
+Aera
+Bruce
+Charles
+Christine
+Hannah
+Isaiah
+Jasper
+Joshua
+Michtam
+Nathalie
+Sarah
+Timothy
+Winlove
+Zazie
+
+
+
+Timothy = Jasper z
+Winlove = Christine x
+Hannah = Sarah
+Zazie = Isaiah 
+Zazie = Timothy x
+Michtam = Sarah
+Joshua = Jasper
+Jasper = Bruce
+Bruce = Zazie
+
+
+
+
+
+

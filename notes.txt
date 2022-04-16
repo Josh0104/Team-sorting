@@ -1,0 +1,38 @@
+Change the order of an array
+ for (index = 0; index < teams.length; index++) {
+        var ranNum1 = Math.floor(Math.random()*5) 
+        var ranNum2 = Math.floor(Math.random()*5) 
+        var element = teams[ranNum1]; //Save the chosen element in the array
+        console.log(element)
+           teams.splice(ranNum1, 1); //Remove the element from the array
+            teams.splice(ranNum2, 0, element); //Put the element back in a random index in the array
+            console.log(teams)
+        }
+
+
+
+    if (arrTeams.length <= maxTeamMembers && conditions(youth[num], arrTeams[0]))
+      teamSort(strArrTeams[0],  arrTeams[0], youth[num]);
+    else if (arrTeams.length <= maxTeamMembers && conditions(youth[num], arrTeams[1]))
+      teamSort(strArrTeams[1], arrTeams[1], youth[num]);
+    else if (arrTeams.length <= maxTeamMembers && conditions(youth[num], arrTeams[2]))
+      teamSort(strArrTeams[2], arrTeams[2], youth[num]);
+    else if (arrTeams.length <= maxTeamMembers && conditions(youth[num], arrTeams[3]))
+      teamSort(strArrTeams[3], arrTeams[3], youth[num]);
+    else if (arrTeams.length <= maxTeamMembers)
+      teamSort(strArrTeams[4], arrTeams[4], youth[num]);
+    sorting();
+
+
+
+        if (blue.length <= maxTeamMembers && conditions(youth[num], blue))
+      teamSort("blue", blue, youth[num]);
+    else if (red.length <= maxTeamMembers && conditions(youth[num], red))
+      teamSort("red", red, youth[num]);
+    else if (green.length <= maxTeamMembers && conditions(youth[num], green))
+      teamSort("green", green, youth[num]);
+    else if (black.length <= maxTeamMembers && conditions(youth[num], black))
+      teamSort("black", black, youth[num]);
+    else if (white.length <= maxTeamMembers)
+      teamSort("white", white, youth[num]);
+    sorting();
