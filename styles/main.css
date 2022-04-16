@@ -24,8 +24,8 @@ button {
 
 h1 {
   text-align: center;
-  font-size: 2vw;
-  font-size: 3em;
+  font-size: 2.3em;
+  
 }
 
 .mark {
@@ -37,7 +37,7 @@ h1 {
   font-size: 3.5vw;
   text-align: center;
 }
-.container {
+.container, .teamsDiv {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -57,7 +57,7 @@ h1 {
 }
 
 /*Flexbox*/
-.flex {
+.flex, .teamsDiv {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -70,4 +70,11 @@ h1 {
 
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
+}
+
+#div1, #div2 {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
 }

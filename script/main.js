@@ -102,8 +102,14 @@ const sorting = (again) => {
 function teamSort(colorStr, color, member) {
   // console.log(member + " " + colorStr)
   color.push(member);
-  if(colorStr == "white") document.getElementById("white").innerHTML += `<li class="item flex-item" style="background: white; color:black;" >${member}</li>`
-  else document.getElementById(colorStr).innerHTML += `<li class="item flex-item" style="background: ${colorStr}">${member}</li>`;
+  if (colorStr == "white")
+    document.getElementById(
+      "white"
+    ).innerHTML += `<li class="item flex-item" style="background: white; color:black;" draggable="true" ondragstart="drag(event)">${member}</li>`;
+  else
+    document.getElementById(
+      colorStr
+    ).innerHTML += `<li id="${member}"class="item flex-item" style="background: ${colorStr}" draggable="true" ondragstart="drag(event)">${member}</li>`;
 }
 
 const conditions = (per, color) => {
@@ -131,13 +137,21 @@ const conditions = (per, color) => {
     (per == "Timothy" && color.includes("Aera"))
   ) {
     if (color == arrTeams[4]) {
-        let str2 = strArrTeams[4].charAt(0).toUpperCase() + strArrTeams[4].slice(1); //Capitalize first letter
-      document.getElementById("error").innerHTML =
-        "Error matcing in " + str2 + " Team";
-      alert("Invalid match: " + per + " and " + color + "\nTry again ");
-      stopFunc()
+      let str2 =
+        strArrTeams[4].charAt(0).toUpperCase() + strArrTeams[4].slice(1); //Capitalize first letter
+      // document.getElementById("error").innerHTML =
+      //   "Error matcing in " + str2 + " Team";
+      // alert("Invalid match: " + per + " and " + color + "\nTry again ");
+      // stopFunc();
       return true;
     }
+    let ranNr = Math.floor(Math.random()*21)
+    if(ranNr === 10) {
+      console.log(ranNr)
+      stopFunc(); 
+      return
+    }
+  
     // console.log("invalid match " + color);
     return false;
   } else return true;
@@ -150,7 +164,7 @@ const autoFunction = () => {
   if (!nIntervId) {
     console.log("Working");
     nIntervId = setInterval("sorting(1)", 500);
-    document.getElementById("btn2").innerHTML = "Stop"
+    document.getElementById("btn2").innerHTML = "Stop";
   } else {
     stopFunc();
     alert("you stopped the loop");
@@ -158,18 +172,18 @@ const autoFunction = () => {
 };
 
 for (let index = 0; index < strArrTeams.length; index++) {
-    for (let ii = 0; ii < 3; ii++) {
-        document.getElementById(strArrTeams[index]).innerHTML += `<li class="item flex-item" style="background: ${strArrTeams[index]}; color: ${strArrTeams[index]}">Jesus</li>`;
-    }
-    
+  for (let ii = 0; ii < 3; ii++) {
+    document.getElementById(
+      strArrTeams[index]
+    ).innerHTML += `<li class="item flex-item" style="background: ${strArrTeams[index]}; color: ${strArrTeams[index]}">Jesus</li>`;
+  }
 }
 
 const stopFunc = () => {
-    clearInterval(nIntervId);
-    nIntervId = null;
-    document.getElementById("btn2").innerHTML = "Auto"
-
-}
+  clearInterval(nIntervId);
+  nIntervId = null;
+  document.getElementById("btn2").innerHTML = "Auto";
+};
 
 document.getElementById("btn2").addEventListener("click", autoFunction);
 // If two people needs to be together
