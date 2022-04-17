@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles/main.css">
-</head>
-<body>
-    <button onclick="sorting(1)"> Shuffle</button>
-    <button id="btn2" onlick="autoFunction()"> Auto</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Shuffle Youth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <!-- <button id="btn1" class="btn" onclick="sorting(1)"></button> -->
+    <img  onclick="sorting(1,true)" src="https://cdn-icons.flaticon.com/png/512/3168/premium/3168104.png?token=exp=1650158218~hmac=4e6df07b1f0f920756f01069fc28cade" alt="">
+    <button id="btn2" class="btn" onlick="autoFunction()">Auto </button>
 
+    <div id="mainDiv">
+    <div class="teamsDiv">
     <h1>Blue Team</h1>
-    <div  class="teamsDiv" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <ul id ="blue" class="container flex"></ul>
+      <ul id="blue" class="container flex"  ondrop="drop('blue')"></ul>
     </div>
-    <h1>Red Team</h1>
-    <div class="teamsDiv" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <ul id ="red" class="container flex"  ondrop="drop(event)" ondragover="allowDrop(event)"> </ul>
+    
+    <div class="teamsDiv">
+    <h1 style="display: block">Red Team</h1>
+      <ul id="red" class="container flex" ondrop="drop('red')"></ul>
     </div>
-  <h1>Green Team</h1>
-    <div class="teamsDiv" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <ul id ="green" class="container flex"  ondrop="drop(event)" ondragover="allowDrop(event)"> </ul>
+    <div class="teamsDiv">
+    <h1>Green Team</h1>
+      <ul id="green" class="container flex" ondrop="drop('green')"></ul>
     </div>
+    <div class="teamsDiv">
 
-<h1>Black Team</h1>
-    <div class="teamsDiv" ondrop="drop(event)" ondragover="allowDrop(event)">
-        
-        <ul id ="black" class="container flex"  ondrop="drop(event)" ondragover="allowDrop(event)"> </ul>
+    <h1>Black Team</h1>
+      <ul id="black" class="container flex" ondrop="drop('black')"></ul>
     </div>
-<h1>White Team</h1>
-    <div class="teamsDiv" ondrop="drop(event)" ondragover="allowDrop(event)">
-        
-        <ul id ="white" class="container flex"  ondrop="drop(event)" ondragover="allowDrop(event)"> </ul>
-    </div>
+    <div class="teamsDiv">
 
-    <div>
+    <h1>White Team</h1>
+      <ul id="white" class="container flex" ondrop="drop('white')"></ul>
     </div>
-
+</div>
+    <div></div>
     <p id="error"></p>
-
+    <p id="demo"></p>
 
     <script src="/script/main.js"></script>
     <script src="/script/dragDrop.js"></script>
-</body>
+  </body>
 </html>

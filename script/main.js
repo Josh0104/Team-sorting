@@ -27,7 +27,7 @@ var arrTeams = [blue, red, green, white, black];
 
 var strArrTeams = ["blue", "red", "green", "white", "black"];
 
-const sorting = (again) => {
+const sorting = (again, autoStop) => {
   if (again != undefined) {
     // Resets everything
     chosen = [];
@@ -43,6 +43,7 @@ const sorting = (again) => {
       document.getElementById(strArrTeams[index]).innerHTML = "";
     }
     document.getElementById("error").innerHTML = "";
+    if(autoStop) stopFunc()
   }
   if (chosen.length === maxYouth) return;
   var num = Math.floor(Math.random() * youth.length);
@@ -95,6 +96,12 @@ const sorting = (again) => {
       conditions(youth[num], arrTeams[4])
     )
       teamSort(strArrTeams[4], arrTeams[4], youth[num]);
+    // else if (
+    //   arrTeams[4].length === maxTeamMembers &&
+    //   !conditions(youth[num], arrTeams[4])
+    // )
+    //   console.log("Wrong")
+    //   teamSort(strArrTeams[4], arrTeams[4], youth[num])
     sorting();
   }
 };
@@ -102,39 +109,34 @@ const sorting = (again) => {
 function teamSort(colorStr, color, member) {
   // console.log(member + " " + colorStr)
   color.push(member);
-  if (colorStr == "white")
-    document.getElementById(
-      "white"
-    ).innerHTML += `<li class="item flex-item" style="background: white; color:black;" draggable="true" ondragstart="drag(event)">${member}</li>`;
-  else
     document.getElementById(
       colorStr
-    ).innerHTML += `<li id="${member}"class="item flex-item" style="background: ${colorStr}" draggable="true" ondragstart="drag(event)">${member}</li>`;
+    ).innerHTML += `<li id="${member}"class="dropzone" draggable="true" ondrag="dragging(${member})">${member}</li>`;
 }
 
 const conditions = (per, color) => {
   //Make two peope not be in the same team
   if (
-    (per == "Jasper" && color.includes("Timothy")) ||
-    (per == "Timothy" && color.includes("Jasper")) ||
-    (per == "Zazie" && color.includes("Timothy")) ||
-    (per == "Timothy" && color.includes("Zazie")) ||
-    (per == "Winlove" && color.includes("Christine")) ||
-    (per == "Christine" && color.includes("Winlove")) ||
-    (per == "Hannah" && color.includes("Sarah")) ||
-    (per == "Sarah" && color.includes("Hannah")) ||
-    (per == "Zazie" && color.includes("Isaiah")) ||
-    (per == "Isaiah" && color.includes("Zazie")) ||
-    (per == "Michtam" && color.includes("Sarah")) ||
-    (per == "Sarah" && color.includes("Michtam")) ||
-    (per == "Joshua" && color.includes("Jasper")) ||
-    (per == "Jasper" && color.includes("Joshua")) ||
-    (per == "Bruce" && color.includes("Jasper")) ||
-    (per == "Jasper" && color.includes("Bruce")) ||
-    (per == "Bruce" && color.includes("Zazie")) ||
-    (per == "Zazie" && color.includes("Bruce")) ||
-    (per == "Aera" && color.includes("Timothy")) ||
-    (per == "Timothy" && color.includes("Aera"))
+    (per == "Jasper" && color.includes("Timothy"))
+    || (per == "Timothy" && color.includes("Jasper"))
+    || (per == "Zazie" && color.includes("Timothy"))
+    || (per == "Timothy" && color.includes("Zazie"))
+    || (per == "Winlove" && color.includes("Christine"))
+    || (per == "Christine" && color.includes("Winlove"))
+    || (per == "Hannah" && color.includes("Sarah"))
+    || (per == "Sarah" && color.includes("Hannah"))
+    || (per == "Zazie" && color.includes("Isaiah"))
+    || (per == "Isaiah" && color.includes("Zazie"))
+    || (per == "Michtam" && color.includes("Sarah"))
+    || (per == "Sarah" && color.includes("Michtam"))
+    || (per == "Joshua" && color.includes("Jasper"))
+    || (per == "Jasper" && color.includes("Joshua"))
+    || (per == "Bruce" && color.includes("Jasper"))
+    || (per == "Jasper" && color.includes("Bruce"))
+    || (per == "Bruce" && color.includes("Zazie"))
+    || (per == "Zazie" && color.includes("Bruce"))
+    || (per == "Aera" && color.includes("Timothy"))
+    || (per == "Timothy" && color.includes("Aera"))
   ) {
     if (color == arrTeams[4]) {
       let str2 =
@@ -143,14 +145,15 @@ const conditions = (per, color) => {
       //   "Error matcing in " + str2 + " Team";
       // alert("Invalid match: " + per + " and " + color + "\nTry again ");
       // stopFunc();
-      return true;
+      sorting(1)
+      return false;
     }
-    let ranNr = Math.floor(Math.random()*21)
-    if(ranNr === 10) {
-      console.log(ranNr)
-      stopFunc(); 
-      return
-    }
+    // let ranNr = Math.floor(Math.random()*21)
+    // if(ranNr === 10) {
+    //   console.log(ranNr)
+    //   stopFunc(); 
+    //   return
+    // }
   
     // console.log("invalid match " + color);
     return false;
@@ -165,9 +168,11 @@ const autoFunction = () => {
     console.log("Working");
     nIntervId = setInterval("sorting(1)", 500);
     document.getElementById("btn2").innerHTML = "Stop";
+    document.getElementById("btn2").style.backgroundColor = "red";
+
   } else {
     stopFunc();
-    alert("you stopped the loop");
+    // alert("you stopped the loop");
   }
 };
 
@@ -183,6 +188,8 @@ const stopFunc = () => {
   clearInterval(nIntervId);
   nIntervId = null;
   document.getElementById("btn2").innerHTML = "Auto";
+  document.getElementById("btn2").style.backgroundColor = "limegreen";
+
 };
 
 document.getElementById("btn2").addEventListener("click", autoFunction);

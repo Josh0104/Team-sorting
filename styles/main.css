@@ -2,30 +2,52 @@ body {
   background-color: beige;
 }
 
-button {
+img {
+  object-fit: contain;
+  right: 0;
+  position: fixed;
+  bottom: 10px;
+  width: 15vw;
+  height: 9vw;
+  cursor: pointer;
+}
+
+.btn {
   position: fixed;
   display: block;
   bottom: 0;
   right: 0;
   width: 15vw;
-  height: 10vw;
-  font-size: 2.5vw;
+  height: 9vw;
+  font-size: 4vw;
+  word-break: break-all;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+#btn1 {
+  right: 0;
+  color: aliceblue;
+  background-color: rgb(216, 171, 25);
 }
 
 #btn2 {
-  bottom: 0;
   left: 0;
+  background-color: limegreen;
+  color: aliceblue;
+}
+
+#mainDiv{
+  /* display: block; */
 }
 
 .teamsDiv {
-  display: inline-block;
+display:block;
   margin: 0 auto;
 }
 
 h1 {
   text-align: center;
   font-size: 2.3em;
-  
 }
 
 .mark {
@@ -37,13 +59,15 @@ h1 {
   font-size: 3.5vw;
   text-align: center;
 }
-.container, .teamsDiv {
+.container,
+.teamsDiv {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.item {
+.item,
+.dropzone {
   padding: 5px;
   width: 150px;
   height: 100px;
@@ -57,7 +81,8 @@ h1 {
 }
 
 /*Flexbox*/
-.flex, .teamsDiv {
+.flex,
+.teamsDiv {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -72,9 +97,31 @@ h1 {
   justify-content: space-around;
 }
 
-#div1, #div2 {
+#div1,
+#div2 {
   width: 350px;
   height: 70px;
   padding: 10px;
   border: 1px solid #aaaaaa;
+}
+
+#blue .dropzone {
+  background-color: blue;
+}
+
+#red .dropzone {
+  background-color: red;
+}
+
+#green .dropzone {
+  background-color: green;
+}
+
+#black .dropzone {
+  background-color: black;
+}
+
+#white .dropzone {
+  background-color: white;
+  color: black;
 }
