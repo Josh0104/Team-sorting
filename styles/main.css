@@ -36,6 +36,11 @@ img {
   color: aliceblue;
 }
 
+.title {
+  position: relative;
+
+}
+
 #mainDiv{
   /* display: block; */
 }
@@ -95,6 +100,9 @@ h1 {
 
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
+}
+
+.dropzone {
 }
 
 #div1,
